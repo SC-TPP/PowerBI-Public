@@ -1,0 +1,25 @@
+//Column Names and values are only for reference
+//This is designed for use with Pentana or other PI data and the PowerKPI custom visual found in the marketplace
+    Status Index = 
+//1 is Green, -1 is Red and 0 is Amber. Additional Statuses can be configured in visuals based on the numbers in this column. Adjust formulas to provide more or less status options for each indicator.
+//PIs with no target are not specified in the Switch statement so that they appear as null
+        Switch('Quantative Indicators'[code],
+            "HR015.02",
+            //% Variance from Target Thresholds
+                If(
+                    ('Quantative Indicators'[value] - 'Quantative Indicators'[target])/'Quantative Indicators'[target]>-.05,1,
+                If(
+                    ('Quantative Indicators'[value] - 'Quantative Indicators'[target])/'Quantative Indicators'[target]<=-.1,-1,
+                If(
+                    ('Quantative Indicators'[value] - 'Quantative Indicators'[target])/'Quantative Indicators'[target]<=-.05,0,BLANK()
+                ))),
+            "HR002.01",
+            //Absolute Value Thresholds
+                If(
+                    'Quantative Indicators'[value]<5.11,1,
+                If(
+                    'Quantative Indicators'[value]>=5.77,-1,
+                If(
+                    'Quantative Indicators'[value]>=5.11,0,BLANK()
+                )))
+    )

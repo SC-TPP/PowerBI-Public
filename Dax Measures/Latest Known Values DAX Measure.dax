@@ -1,0 +1,32 @@
+// This measure will only work with a custom date table.
+VAR MaxDate =
+    MAX ( Dates[Date] )
+// Create a table of each distinct group required with the last known dates for each
+VAR LastDates =
+    ADDCOLUMNS (
+        CALCULATETABLE (
+            VALUES (Data Table[Column to Group By]),
+            ALL (Dates)
+        ),
+        "LastDay",
+        CALCULATE (
+            MAX ( Data Table [Date] ),
+            ALL ( Dates ),
+            Dates[Date] <= MaxDate
+        )
+    )
+// Unsure exactly what this step does - further commenting for this part required
+VAR LastDatesWithLineage =
+    TREATAS (
+        LastDates,
+        Data Table[Column to Group By],
+        Dates[Date]
+    )
+// Calculate value for last known date. The first part of the Calculate can be altered to perform the desired calculation (average, Max, Min, Count etc.). If there will only be a single result for each date and group then either average or sum can be used to return the single value.
+VAR Result =
+    CALCULATE (
+        SUM ( Data Table[Value Column]),
+        LastDatesWithLineage
+    )
+RETURN
+    Result
