@@ -1,4 +1,4 @@
-//Sharepoint Data sources have an issue where they do not account for daylight savings. Dates before clock change will be correct but after will be the previous date but 23:00
+//Sharepoint Data sources have an issue where date only columns do not account for daylight savings. Dates before clock change will be correct but after will be the previous date but 23:00
 //Before creating the calculated column split the datetime column into date and time. Then rename the date column to "Date (wrong)" and the time column to "Time"
 //The code below fixes this when placed in a calculated column
 if 
