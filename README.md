@@ -11,7 +11,7 @@ Code snippets and other useful resources for PowerBI.
   ### [Indicator Status Index](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/Indicator%20Status%20Index.dax)
   This provides an example of how to make an status index column in dax for use with KPI visuals etc.
   ### [Convert Arc Epoch DateTime](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/Convert%20Arc%20DateTime.m)
-  Arc Data sources will provide dates in Epoch format. This m code will convert this to a datetime format the PowerBI can mark correctly.
+  Arc Data sources will provide dates in Epoch format. This m code will convert this to a datetime format the PowerBI can use correctly.
   ### [Convert HTML Rich Text](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/Convert%20HTML.m)
   Code that can be pasted into the add column dialogue to convert HTML rich text and special characters to plain text.
 
@@ -27,4 +27,4 @@ Function varients of code found in other sections. To use these code snippets cr
   ### [Fix SharePoint Date Column](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Fix%20SP%20DateColumn%20Function.m)
   Function that corrects errors caused by sharepoint date only columns and daylight savings.
   ### [Get SharePoint Version History](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Get%20SP%20Version%20History%20Function.m)
-  Function that retrieves vertsion history from SharePoint for a list of item ids.
+  Function that retrieves version history from SharePoint for a list of item ids.
