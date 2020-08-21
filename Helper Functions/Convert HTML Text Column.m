@@ -16,18 +16,21 @@ let
                                     RenameOriginalColumn,
                                     ColumnName,
                                     each
-                                        let
-                                            GetPlainTextAsTable = 
-                                                Html.Table(
-                                                    [HTMLText],
-                                                        {
-                                                            {"Plaintext",":root"}
-                                                        }
-                                                ),
-                                            //Expand the table created above down to only select the "Plaintext" column and then only the first row value (there are no other values returned due to ":root")
-                                            GetPlaintext = GetPlainTextAsTable[Plaintext]{0}
-                                        in 
-                                            GetPlaintext
+                                        if [HTMLText] = null
+                                        then null
+                                        else 
+                                            let
+                                                GetPlainTextAsTable = 
+                                                    Html.Table(
+                                                        [HTMLText],
+                                                            {
+                                                                {"Plaintext",":root"}
+                                                            }
+                                                    ),
+                                                //Expand the table created above down to only select the "Plaintext" column and then only the first row value (there are no other values returned due to ":root")
+                                                GetPlaintext = GetPlainTextAsTable[Plaintext]{0}
+                                            in 
+                                                GetPlaintext
                                 ),
         //Remove the original column so that only the corrected one is returned
         RemoveOriginalColumn = 
