@@ -1,8 +1,8 @@
 let
     //Define function parameters as requiring the previous step as a table and the name of the column of records as text
     ExpandAllRecords = (PreviousStep as table, RecordsColumnName as text) =>
-    let 
-        ExpandAllColumnsFromRecords =
+        let 
+            ExpandAllColumnsFromRecords =
                                 Table.ExpandRecordColumn(
                                     PreviousStep,
                                     RecordsColumnName,
@@ -29,7 +29,7 @@ let
                                         )
                                     )
                             )
-    in
-        ExpandAllColumnsFromRecords
+        in
+            ExpandAllColumnsFromRecords
 in
     ExpandAllRecords
