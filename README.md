@@ -27,4 +27,6 @@ Function varients of code found in other sections. To use these code snippets cr
   ### [Fix SharePoint Date Column](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Fix%20SP%20DateColumn%20Function.m)
   Function that corrects errors caused by sharepoint date only columns and daylight savings.
   ### [Get SharePoint Version History](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Get%20SP%20Version%20History%20Function.m)
-  Function that retrieves version history from SharePoint for a list of item ids.
+  Function that retrieves version history from SharePoint for a column of item ids.
+  ### [Validate Email Addresses](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Validate%20Emails.m)
+  Function that returns email validation data fo a column of emails using the api at https://github.com/CodeKJ/DISIFY
