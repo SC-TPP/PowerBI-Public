@@ -1,4 +1,4 @@
-# Stirling Council PowerBI Code Snippets (Public)
+# PowerBI Code Snippets (Public)
 Code snippets and other useful resources for PowerBI.
 
 ## DAX Measures
