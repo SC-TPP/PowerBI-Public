@@ -8,10 +8,33 @@ let
                     PreviousStep,
                         {EmailColumnName,"EmailsToValidate"}
                 ),
+            //Basic cleanup of emails by trimming, cleaning and removing spaces (as these are not valid in email addresses)
+            Trim =
+                Table.TransformColumns(
+                    RenameEmailColumn,
+                        {
+                            {"EmailsToValidate", Text.Trim, type text}
+                        }
+                ),
+            Clean = 
+                Table.TransformColumns(
+                    Trim,
+                        {
+                            {"EmailsToValidate", Text.Clean, type text}
+                        }
+                ),
+            RemoveSpaces = 
+                Table.ReplaceValue(
+                    Clean,
+                        " ",
+                        "",
+                        Replacer.ReplaceText,
+                        {"EmailsToValidate"}
+                ),
             //Add calculated column that calls the API service at https://github.com/CodeKJ/DISIFY to retrieve validation data regarding the passed email address
             GetValidationReturn = 
                 Table.AddColumn(
-                    RenameEmailColumn,
+                    RemoveSpaces,
                         "EmailValidationReturn",
                         each 
                             Json.Document(
