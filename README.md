@@ -29,4 +29,4 @@ Function varients of code found in other sections. To use these code snippets cr
   ### [Get SharePoint Version History](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Get%20SP%20Version%20History%20Function.m)
   Function that retrieves version history from SharePoint for a column of item ids.
   ### [Validate Email Addresses](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Validate%20Emails.m)
-  Function that returns email validation data fo a column of emails using the api at https://github.com/CodeKJ/DISIFY
+  Function that returns email validation data fo a column of emails using the api at https://github.com/CodeKJ/DISIFY. This API does not have a 100% success rate. It attempts to validate the format of the email address only. Some bizarre email addresses may return false results.
