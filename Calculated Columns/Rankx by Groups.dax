@@ -1,0 +1,11 @@
+Rank Descending = 
+                Rankx(
+                    Filter(
+                        Indicators,
+                        Indicators[Indicator] = Earlier(Indicators[Indicator]) && Indicators[Period] = Earlier(Indicators[Period])
+                    ),
+                        Indicators[Value],
+                        ,
+                        DESC,
+                        Skip
+                    )
