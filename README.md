@@ -1,5 +1,9 @@
-# PowerBI Code Snippets (Public)
-Code snippets and other useful resources for PowerBI.
+# PowerBI Reusable Code (Public)
+Resources for use with PowerBI. This repo contains :
+  * Dax measures
+  * M query functions
+  * Generic m query code snippets
+  * Custom connectors to unsupported data sources
 
 ## DAX Measures
   ### [Latest Known Values Measure](https://github.com/SC-TPP/PowerBI-Public/blob/master/Dax%20Measures/Latest%20Known%20Values%20DAX%20Measure.dax)
