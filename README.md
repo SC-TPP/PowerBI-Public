@@ -40,4 +40,11 @@ Custom Connectors for unsupported data sources. To use these data connectors fol
     4. Move resulting file to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
     5. The data can now be accessed using the Get Data menu in PowerBI
   ### [Pentana - Performance Indicator Data](https://github.com/SC-TPP/PowerBI-Public/blob/master/Custom%20Connectors/Pentana%20-%20Indicators)
-  >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period.
+  >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period. Performance leaves something to be desired. Load times can be up to 10 minutes. Requires further performance tuning but is functional.
+
+  Variables to replace are :
+  >     client_password = client password info from Pentana
+  >     client_username = client username info from Pentana
+  >     client_secret   = client base64 encoded secret string
+  >     token_uri = token url in the format "https://yourorganisation.pentanarpm.uk/cpmweb/oauth/token";
+  >     pis_list_uri = list all PIs url in the format "https://yourorganisation.pentanarpm.uk/cpmweb/api/pis";
