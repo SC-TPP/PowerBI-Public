@@ -43,6 +43,9 @@ Custom Connectors for unsupported data sources. To use these data connectors fol
     3. Retitle .zip to .meZ
     4. Move resulting file to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
     5. The data can now be accessed using the Get Data menu in PowerBI
+
+**!!! Some of these connectors potentially expose client secret information. The connectors and resulting PBIX files should not be held anywhere public or distributed to anyone who should not have your client secret information !!!**
+
   ### [Pentana - Performance Indicator Data](https://github.com/SC-TPP/PowerBI-Public/blob/master/Custom%20Connectors/Pentana%20-%20Indicators)
   >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period. Performance leaves something to be desired. Load times can be up to 10 minutes. Requires further performance tuning but is functional.
 
