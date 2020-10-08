@@ -38,20 +38,11 @@ Function varients of code found in other sections. To use these code snippets cr
 ## Custom Connectors
 Custom Connectors for unsupported data sources. To use these data connectors follow the steps below for each connector.
 
-    1. Download contents of an individual connector folder and create a .zip file from these contents.
-    2. Complete any variables required within the .m file
-    3. Retitle .zip to .meZ
-    4. Move resulting file to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
+    1. Download .mez file
+    4. Move to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
     5. The data can now be accessed using the Get Data menu in PowerBI
 
-**!!! Some of these connectors potentially expose client secret information. The connectors and resulting PBIX files should not be held anywhere public or distributed to anyone who should not have your client secret information !!!**
+**!!! Some of these connectors potentially expose client secret information if traffic is monitored using fiddler !!!**
 
   ### [Pentana - Performance Indicator Data](https://github.com/SC-TPP/PowerBI-Public/blob/master/Custom%20Connectors/Pentana%20-%20Indicators)
-  >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period. Performance leaves something to be desired. Load times can be up to 10 minutes. Requires further performance tuning but is functional.
-
-  Variables to replace are :
-  >     client_password = client password info from Pentana
-  >     client_username = client username info from Pentana
-  >     client_secret   = client base64 encoded secret string
-  >     token_uri = token url in the format "https://yourorganisation.pentanarpm.uk/cpmweb/oauth/token";
-  >     pis_list_uri = list all PIs url in the format "https://yourorganisation.pentanarpm.uk/cpmweb/api/pis";
+  >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period.
