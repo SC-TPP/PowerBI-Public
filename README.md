@@ -46,3 +46,7 @@ Custom Connectors for unsupported data sources. To use these data connectors fol
 
   ### [Pentana - Performance Indicator Data](https://github.com/SC-TPP/PowerBI-Public/blob/master/Custom%20Connectors/Pentana%20-%20Indicators)
   >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period.
+
+  >Within the .m file contained in the .mez the url variables below will need to be adjusted to reference your particular organisation's url
+  > 1. token_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/oauth/token";
+  > 2. pis_list_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/api/pis";
