@@ -12,7 +12,12 @@ shared PIConnector.Contents = () =>
 // Data Source Kind description
 PIConnector = [
     Authentication = [
-        Anonymous = []
+                //Collect client information and store client secret in password. This is only partially secure as anyone with fiddler open can see the url being passed to retrieve an access token (including all client details)
+                UsernamePassword = 
+                            [
+			                    UsernameLabel = "client_username#client_password (API Username and API Password seperated by '#')",
+                                PasswordLabel = "client_secret"
+                            ]
     ],
     Label = Extension.LoadString("DataSourceLabel")
 ];
@@ -33,14 +38,28 @@ PIConnector.Icons = [
 ];
 
 //Authorization Details
-client_password = "";
-client_username = "";
-//Encoded client secret as text
-client_secret = "";
+//Splits password out from the username submitted as part of authentication
+client_password = 
+                    List.Last(
+                        Text.Split(
+                            Extension.CurrentCredential()[Username],
+                                "#"
+                        )
+                    );
+//Splits username out from the username submitted as part of authentication
+client_username = 
+                    List.First(
+                        Text.Split(
+                            Extension.CurrentCredential()[Username],
+                                "#"
+                        )
+                    );
+//Retrieves client_secret information from the password field submitted as part of authentication
+client_secret = Extension.CurrentCredential()[Password];
 //uris
-token_uri = "";
-pis_list_uri = "";
-//Authorization Token
+token_uri = "https://stirling.pentanarpm.uk/cpmweb/oauth/token";
+pis_list_uri = "https://stirling.pentanarpm.uk/cpmweb/api/pis";
+//Authorization token web.contents request parts
 auth_body = "{ ""grant_type"":""password"",""username"":"""&client_username&""",""password"":"""&client_password&"""}";
 auth_parsedbody = Json.Document(auth_body);
 auth_content = Uri.BuildQueryString(auth_parsedbody);
@@ -104,10 +123,22 @@ PI_NavTable = () =>
                 #"Filtered Rows",
                 {"active"}
             ),
+    //Add concatenated Code + Indicator title for use when searching in Nav Table
+        #"Added Custom" = 
+            Table.AddColumn(
+                #"Removed Columns", 
+                "indicator", 
+                each [code]&" - "&[title]
+            ),
+        #"Removed Title" = 
+            Table.RemoveColumns(
+                #"Added Custom",
+                {"title"}
+            ),
     //Call PI_GetData function for each indicator and add the results in a calculated column
         GetData = 
             Table.AddColumn(
-                #"Removed Columns",
+                #"Removed Title",
                 "data",
                 each PI_GetData(Number.ToText([id]))
             ),
@@ -134,8 +165,8 @@ PI_NavTable = () =>
         navtable = 
             Table.ToNavigationTable(
                 Add_isLeaf,
-                {"code"},
-                "code",
+                {"indicator"},
+                "indicator",
                 "data",
                 "itemKind",
                 "itemName",
