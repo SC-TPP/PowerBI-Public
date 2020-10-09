@@ -5,9 +5,13 @@ Resources for use with PowerBI. This repo contains :
   * Generic m query code snippets
   * Custom connectors to unsupported data sources
 
+Some of the code in this repo is altered or copied from articles online. Where possible sources have been included.
+
 ## DAX Measures
   ### [Latest Known Values Measure](https://github.com/SC-TPP/PowerBI-Public/blob/master/Dax%20Measures/Latest%20Known%20Values%20DAX%20Measure.dax)
   >This measure will allow charting of the last known values over time as opposed to only charting values that match the date.
+
+  >Source : Reddit user u/Aklur created this code and his explanation of how it works can be found at https://www.reddit.com/r/PowerBI/comments/gixdk9/need_urgent_help_with_a_dax_measure/
 
 ## Calculated Columns
   ### [SharePoint Daylight Savings Date Column Fix](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/SharePoint%20Daylight%20Savings%20Fix.m)
@@ -19,6 +23,8 @@ Resources for use with PowerBI. This repo contains :
   ### [Convert HTML Rich Text](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/Convert%20HTML.m)
   >Code that can be pasted into the add column dialogue to convert HTML rich text and special characters to plain text.
 
+  >Source : based around the content of Dhruvin Shah's youtube video found at https://www.youtube.com/watch?v=4UDynnPQpG4
+
 ## Custom Functions
 Function varients of code found in other sections. To use these code snippets create a blank query and paste the full code in. Retitle the query and use the new title of the query to call the function from other queries.
 
@@ -26,8 +32,12 @@ Function varients of code found in other sections. To use these code snippets cr
   >Function that will convert the epoch date format from Arc datasources when called with the correct parameters.
   ### [Convert HTML Text Column](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Convert%20HTML%20Text%20Column.m)
   >Function that converts html rich text in a column to plain text. Converts special characters as well as removing HTML tags.
+
+  >Source : based around the content of Dhruvin Shah's youtube video found at https://www.youtube.com/watch?v=4UDynnPQpG4
   ### [Dynamically Expand Records](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Dynamically%20Expand%20Records%20-%20Function.m)
   >Function that expands all columns for all records in a column of records. Protects against column changes in records.
+
+  >Source : adapted from Parker Steven's blog at https://bielite.com/blog/dynamically-expand-all-columns/ into a function
   ### [Fix SharePoint Date Column](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Fix%20SP%20DateColumn%20Function.m)
   >Function that corrects errors caused by sharepoint date only columns and daylight savings.
   ### [Get SharePoint Version History](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Get%20SP%20Version%20History%20Function.m)
