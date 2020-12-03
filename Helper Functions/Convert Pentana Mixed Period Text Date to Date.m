@@ -1,4 +1,4 @@
-//This function will work on columns with dates in the following formats
+//This function will work on columns with dates in the following formats (the formats output in the summary part of the timeperiod record returned in the get request for PI data from the Pentana API)
 // MONTH YEAR e.g November 2020
 // STARTYEAR/ABREVIATEDENDYEAR e.g 2019/20
 // QUARTER NUMBER (Q1,Q2,Q3 OR Q4) STARTYEAR/ABREVIATEDENDYEAR e.g Q1 2019/20
