@@ -1,11 +1,46 @@
-Rank Descending = 
-                Rankx(
-                    Filter(
-                        Table,
-                        Table[Group1] = Earlier(Table[Group1]) && Table[Group2] = Earlier(Table[Group2])
+//This Dax uses a column that specifies the ranking order "Ascending" or "Descending" that must be present in the data table
+//If you only have "Ascending" ranks required you can use the code between lines 7 and 24
+//If you only have "Descending" ranks required you can use the code between lines 27 and 44
+RankColumn = 
+        Switch(
+            Data[Ranking Order],
+                "Ascending",
+                    Rankx(
+                        Filter(
+                            Data,
+                                //The ranking will be calculated within these groups. 
+                                //e.g if the distinct values in "[ColumnToGroupBy1]" were {A,B,C} and the distinct values in "[ColumnToGroupBy2]" were {2018,2019,2020}
+                                //Value ranks would be calculated within all of the unique combinations of these groups
+                                //e.g {A;2018, A;2019, A;2020, B;2018, B;2019, B;2020, C;2018, C;2019, C;2020}
+                                //This can be expanded to more than 2 groupings by adding more lines and copying the format using the earlier function
+                                Data[ColumnToGroupBy1] = Earlier(Data[ColumnToGroupBy1]) && 
+                                Data[ColumnToGroupBy2] = Earlier(Data[ColumnToGroupBy2])
+                        ),
+                        Data[Value],
+                        ,
+                        ASC,
+                        //Values that tie for a rank will result in the next rank being skipped e.g 1,2,3,4,4,6
+                        //This value can be changed to "Dense" to not skip and just return the next rank value e.g. 1,2,3,4,4,5
+                        Skip
                     ),
-                        Table[Value],
+                "Descending",
+                    Rankx(
+                        Filter(
+                            Data,
+                                //The ranking will be calculated within these groups. 
+                                //e.g if the distinct values in "[ColumnToGroupBy1]" were {A,B,C} and the distinct values in "[ColumnToGroupBy2]" were {2018,2019,2020}
+                                //Value ranks would be calculated within all of the unique combinations of these groups
+                                //e.g {A;2018, A;2019, A;2020, B;2018, B;2019, B;2020, C;2018, C;2019, C;2020}
+                                //This can be expanded to more than 2 groupings by adding more lines and copying the format using the earlier function
+                                Data[ColumnToGroupBy1] = Earlier(Data[ColumnToGroupBy1]) && 
+                                Data[ColumnToGroupBy2] = Earlier(Data[ColumnToGroupBy2])
+                        ),
+                        Data[Value],
                         ,
                         DESC,
+                        //Values that tie for a rank will result in the next rank being skipped e.g 1,2,3,4,4,6
+                        //This value can be changed to "Dense" to not skip and just return the next rank value e.g. 1,2,3,4,4,5
                         Skip
-                    )
+                    ),
+                Blank()
+        )
