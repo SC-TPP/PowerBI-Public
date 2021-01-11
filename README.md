@@ -46,17 +46,19 @@ Function varients of code found in other sections. To use these code snippets cr
   >Function that returns email validation data fo a column of emails using the api at https://github.com/CodeKJ/DISIFY. This API does not have a 100% success rate. It attempts to validate the format of the email address only. Some bizarre email addresses may return false results.
   ### [Convert Pentana Mixed Period Text Date to Date](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Convert%20Pentana%20Mixed%20Period%20Text%20Date%20to%20Date.m)
   > This function will work on columns with dates in the following formats (the formats output in the summary part of the timeperiod record returned in the get request for PI data from the Pentana API)
-  >MONTH YEAR e.g November 2020
-  >STARTYEAR/ABREVIATEDENDYEAR e.g 2019/20
-  >QUARTERNUMBER STARTYEAR/ABREVIATEDENDYEAR e.g Q1 2019/20
+  >* MONTH YEAR e.g November 2020
+  >* STARTYEAR/ABREVIATEDENDYEAR e.g 2019/20
+  >* QUARTERNUMBER STARTYEAR/ABREVIATEDENDYEAR e.g Q1 2019/20</br>
+  
   >The split year start is designated as the 1st of April
+
 
 ## Custom Connectors
 Custom Connectors for unsupported data sources. To use these data connectors follow the steps below for each connector.
 
     1. Download .mez file
-    4. Move to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
-    5. The data can now be accessed using the Get Data menu in PowerBI
+    2. Move to My Documents\Microsoft Power BI Desktop\Custom Connectors - If this directory doesnt exist please create it.
+    3. The data can now be accessed using the Get Data menu in PowerBI
 
 **!!! Some of these connectors potentially expose client secret information if traffic is monitored using fiddler !!!**
 
@@ -64,5 +66,5 @@ Custom Connectors for unsupported data sources. To use these data connectors fol
   >Retrieves a table of performance data for each indicator selected. Notes are not currently available from the Pentana API neither are variances for each period.
 
   >Within the .m file contained in the .mez the url variables below will need to be adjusted to reference your particular organisation's url
-  > 1. token_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/oauth/token";
-  > 2. pis_list_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/api/pis";
+  > * token_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/oauth/token";
+  > * pis_list_uri = "https://YOURORGANISATION.pentanarpm.uk/cpmweb/api/pis";
