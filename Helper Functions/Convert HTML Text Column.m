@@ -2,7 +2,7 @@ let
     //Define function parameters as requiring the previous step as a table and the name of the column with html formatted text in it as text
     ConvertHTML = (PreviousStep as table, ColumnName as text) =>
     let 
-        //Rename the original epoch column to allow it to be easily referenced in the next step
+        //Rename the original column to allow it to be easily referenced in the next step
         RenameOriginalColumn = 
                                 Table.RenameColumns(
                                     PreviousStep,
