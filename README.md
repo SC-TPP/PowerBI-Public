@@ -51,6 +51,11 @@ Function varients of code found in other sections. To use these code snippets cr
   >* QUARTERNUMBER STARTYEAR/ABREVIATEDENDYEAR e.g Q1 2019/20</br>
   
   >The split year start is designated as the 1st of April
+  ### [Get a Value from a Previous Row](https://github.com/SC-TPP/PowerBI-Public/blob/master/Helper%20Functions/Get%20Previous%20Values.m)
+  >Function that will get a value from a previous row in the specified column and add this for each row as a new column.
+  >It also allows a groupby column that resets the collected value to null for the first item in each group
+  
+  > !!! Rows must be sorted appropriately before calling the function
 
 
 ## Custom Connectors
