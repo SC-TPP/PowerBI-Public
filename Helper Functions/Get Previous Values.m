@@ -5,7 +5,7 @@ let
             PreviousStep as table,
             DataColumnName as text,
             PeriodsBacktoReturn as number,
-            optional GroupBy as text
+            optional GroupByColumnName as text
         ) =>
         let
             //Buffer table to prevent any reordering while previous values are calculated. This will mean that with VERY large data sets this function will fail due to lack of memory
@@ -21,7 +21,7 @@ let
                 try
                     Table.RenameColumns(
                         RenameDataColumn,
-                            {GroupBy, "GroupBy"}
+                            {GroupByColumnname, "GroupBy"}
                     )
                 otherwise RenameDataColumn,
             //Add index column so that we can refer to index positions later
@@ -70,7 +70,7 @@ let
                 try
                     Table.RenameColumns(
                         RevertDataColumnName,
-                            {"GroupBy", GroupBy}
+                            {"GroupBy", GroupByColumnname}
                     )
                 otherwise RevertDataColumnName
         in
