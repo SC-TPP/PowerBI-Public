@@ -1,0 +1,14 @@
+//This measure is designed for use where we want to count all rows (with filters available to be defined) then determine the percent Grand Total within categories.
+//The primary reason to use this was to show "No Data Items" while displaying %GT
+%GT (Filterable) = 
+    Divide(
+        //CountRows of the table. This will respond as normal to all filter,axis and slicer context
+        CountRows('Table'),
+        //Count all rows of the table only allowing this to be filtered using the columns defined
+        Calculate(
+            CountRows('Table'),
+            //Here you define the filters that you want to be able to apply to the Grand Total number
+            //Do not put X axis columns here
+            AllExcept('Table','Table'[FilterableColumn1],'Table'[FilterableColumn2])
+        )
+    )

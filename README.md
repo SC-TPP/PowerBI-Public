@@ -13,6 +13,9 @@ Some of the code in this repo is altered or copied from articles online. Where p
 
   >Source : Reddit user u/Aklur created this code and his explanation of how it works can be found at https://www.reddit.com/r/PowerBI/comments/gixdk9/need_urgent_help_with_a_dax_measure/
 
+  ### [% of Grand Total CountRows (for use to display 'No Data Items')](https://github.com/SC-TPP/PowerBI-Public/blob/master/Dax%20Measures/CountRows%20%25%20of%20GT.Dax)
+  >This measure is designed for use where we want to count all rows (with filters available to be defined) then determine the percent Grand Total within categories. The primary reason to use this was to show "No Data Items" while displaying %GT as the data label within a bar chart.
+
 ## Calculated Columns
   ### [SharePoint Daylight Savings Date Column Fix](https://github.com/SC-TPP/PowerBI-Public/blob/master/Calculated%20Columns/SharePoint%20Daylight%20Savings%20Fix.m)
   >Sharepoint Data sources have an issue where they do not account for daylight savings. Dates before clock change will be correct but after will be the previous date but 23:00. This code provides a fix for this in M code.
